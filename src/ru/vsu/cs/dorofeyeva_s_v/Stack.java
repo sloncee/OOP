@@ -1,5 +1,7 @@
 package ru.vsu.cs.dorofeyeva_s_v;
 
+import java.time.format.DateTimeFormatter;
+
 public class Stack {
     private int number;
     private int capacity;
@@ -23,5 +25,9 @@ public class Stack {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public void print(){
+        System.out.println("number - " + Integer.toString(number) + ", capacity - " + Integer.toString(capacity));
     }
 }

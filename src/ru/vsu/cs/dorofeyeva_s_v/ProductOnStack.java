@@ -1,6 +1,6 @@
 package ru.vsu.cs.dorofeyeva_s_v;
 
-public abstract class ProductOnStack {
+public abstract class ProductOnStack implements Interface {
     private Product product;
     private Stack stack;
 
@@ -27,4 +27,11 @@ public abstract class ProductOnStack {
 
     public abstract boolean isSuitable();
     public abstract long getDaysRemaining();
+
+    @Override
+    public void print(){
+        product.print();
+        stack.print();
+        System.out.println();
+    }
 }

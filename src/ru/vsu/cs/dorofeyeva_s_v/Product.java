@@ -1,6 +1,7 @@
 package ru.vsu.cs.dorofeyeva_s_v;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Product {
     private String name;
@@ -55,5 +56,9 @@ public class Product {
 
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    public void print(){
+        System.out.println("name - " + name + ", price - " + Double.toString(price) + ", quantity - " + Integer.toString(quantity) + ", manufacturing date - " + manufacturingDate.format(DateTimeFormatter.ofPattern("dd LLLL yyyy")) + ", expiration date - " + expirationDate.format(DateTimeFormatter.ofPattern("dd LLLL yyyy")));
     }
 }

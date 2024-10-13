@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 public class FoodProductOnStack extends ProductOnStack {
-
     public FoodProductOnStack(Product food, Stack stack) {
         super(food, stack);
     }
