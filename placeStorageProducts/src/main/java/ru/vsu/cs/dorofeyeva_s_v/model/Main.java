@@ -8,12 +8,12 @@ public class Main {
         Stack stack1 = new Stack(1, 120);
         Product food1 = new Product("Молоко", 60, 10,
                 LocalDate.of(2023, 10, 20), LocalDate.of(2024, 11, 10));
-        FoodProductOnStack foodProductOnStack1 = new FoodProductOnStack(food1, stack1);
+        FoodProductOnStack foodProductOnStack1 = new FoodProductOnStack(food1, stack1, "Эконива");
 
         Stack stack2 = new Stack(3, 70);
         Product clothes1 = new Product("Рубашка", 2500, 4,
                 LocalDate.of(2022, 9, 26), LocalDate.of(2023, 11, 10));
-        ClothingProductOnStack clothingProductOnStack1 = new ClothingProductOnStack(clothes1, stack2);
+        ClothingProductOnStack clothingProductOnStack1 = new ClothingProductOnStack(clothes1, stack2, "Глория Джинс");
 
         ArrayList<Product> books1 = new ArrayList<>();
         books1.add(new Product("Война и мир", 120, 35,

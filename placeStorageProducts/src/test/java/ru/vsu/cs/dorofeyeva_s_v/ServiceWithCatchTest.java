@@ -14,7 +14,7 @@ import java.util.ArrayList;
 class ServiceWithCatchTest {
     @Test
     void testProcessWarehouseAddProduct_Positive() {
-        // Создаем склад с допустимым индексом
+        // склад с допустимым индексом
         Product product1 = new Product("Test Product", 10.0, 5, null, null);
         ArrayList<Product> books1 = new ArrayList<>();
         books1.add(new Product("Война и мир", 120, 35,
@@ -22,12 +22,12 @@ class ServiceWithCatchTest {
         BookWarehouse bookWarehouse1 = new BookWarehouse(2, 120.6, books1);
 
         ServiceWithCatch service1 = new ServiceWithCatch();
-        service1.processWarehouseAddProduct(bookWarehouse1, product1, 0);  // Проверка, что исключение не выбрасывается
+        service1.processWarehouseAddProduct(bookWarehouse1, product1, 0);
     }
 
     @Test
     void testProcessWarehouseAddProduct_Negative() {
-        // Создаем склад с неверным индексом
+        // склад с неверным индексом
         Product product2 = new Product("Test Product", 10.0, 5, null, null);
         ArrayList<Product> books2 = new ArrayList<>();
         books2.add(new Product("Война и мир", 120, 35,
@@ -41,10 +41,10 @@ class ServiceWithCatchTest {
 
     @Test
     void testProcessProductOnStackPrice_Positive() {
-        // Создаем продукт с положительной ценой
+        // продукт с положительной ценой
         Product product1 = new Product("Test Product Positive", 10.0, 5, null, null);
         Stack stack1 = new Stack(1, 120);
-        FoodProductOnStack foodProductOnStack1 = new FoodProductOnStack(product1, stack1);
+        FoodProductOnStack foodProductOnStack1 = new FoodProductOnStack(product1, stack1, null);
 
         ServiceWithCatch service1 = new ServiceWithCatch();
         service1.processProductOnStackPrice(foodProductOnStack1);
@@ -52,10 +52,10 @@ class ServiceWithCatchTest {
 
     @Test
     void testProcessProductOnStackPrice_Negative() {
-        // Создаем продукт с неположительной ценой
+        //1 продукт с неположительной ценой
         Product product2 = new Product("Test Product Negative", -10.0, 5, null, null);
         Stack stack2 = new Stack(1, 120);
-        FoodProductOnStack productOnStack = new FoodProductOnStack(product2, stack2);
+        FoodProductOnStack productOnStack = new FoodProductOnStack(product2, stack2, null);
 
         ServiceWithCatch service2 = new ServiceWithCatch();
         assertDoesNotThrow(() -> service2.processProductOnStackPrice(productOnStack));

@@ -1,8 +1,5 @@
 package ru.vsu.cs.dorofeyeva_s_v.model;
 
-import ru.vsu.cs.dorofeyeva_s_v.model.Interface;
-import ru.vsu.cs.dorofeyeva_s_v.model.Product;
-
 import java.util.ArrayList;
 
 public abstract class Warehouse implements Interface {
@@ -39,6 +36,7 @@ public abstract class Warehouse implements Interface {
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
+
     public void addProduct(Product product, int index) {
         this.products.set(index, product);
     }

@@ -5,11 +5,11 @@ import org.apache.logging.log4j.Logger;
 import ru.vsu.cs.dorofeyeva_s_v.model.Product;
 import ru.vsu.cs.dorofeyeva_s_v.model.ProductOnStack;
 import ru.vsu.cs.dorofeyeva_s_v.model.Warehouse;
-import ru.vsu.cs.dorofeyeva_s_v.exceptions.CheckedWarehouseException;
-import ru.vsu.cs.dorofeyeva_s_v.exceptions.UncheckedProductOnStackException;
+import ru.vsu.cs.dorofeyeva_s_v.exceptions.CheckedWarehouseAddProductException;
+import ru.vsu.cs.dorofeyeva_s_v.exceptions.UncheckedProductOnStackPriceException;
 
 public class ServiceWithCatch {
-    private static final Logger logger = LogManager.getLogger(ServiceWithCatch.class); // Инициализация логера
+    private static final Logger logger = LogManager.getLogger(ServiceWithCatch.class);
 
     public void processProductOnStackPrice(ProductOnStack productOnStack) {
         try {
@@ -20,11 +20,12 @@ public class ServiceWithCatch {
                 logger.info("Проверка цены продукта прошла успешно");
             } else {
                 logger.error("Ошибка: Цена продукта на полке не может быть неположительной!");
-                throw new UncheckedProductOnStackException("Цена продукта на полке не может быть неположительной!");
+                throw new UncheckedProductOnStackPriceException("Цена продукта на полке не может быть неположительной!");
             }
-            logger.info("Завершение проверки продукта\n");
-        } catch (UncheckedProductOnStackException e) {
+        } catch (UncheckedProductOnStackPriceException e) {
             logger.error("Обработка исключения: " + e.getMessage());
+        } finally {
+            logger.info("Завершение проверки продукта\n");
         }
     }
 
@@ -38,11 +39,12 @@ public class ServiceWithCatch {
                 logger.info("Продукт добавлен на склад успешно");
             } else {
                 logger.error("Ошибка: Товар не может быть добавлен на склад!");
-                throw new CheckedWarehouseException("Товар не может быть добавлен на склад!");
+                throw new CheckedWarehouseAddProductException("Товар не может быть добавлен на склад!");
             }
-            logger.info("Завершение добавления продукта на склад\n");
-        } catch (CheckedWarehouseException e) {
+        } catch (CheckedWarehouseAddProductException e) {
             logger.error("Обработка исключения: " + e.getMessage());
+        } finally {
+            logger.info("Завершение добавления продукта на склад\n");
         }
     }
 }
