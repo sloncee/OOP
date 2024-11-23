@@ -65,6 +65,9 @@ public class DoublyLinkedList<T> implements Iterable<DoublyLinkedListItem<T>> {
     }
 
     public DoublyLinkedListItem<T> findByValue(T value){
+        if (head.getValue() != null && head.getValue().equals(value)) {
+            return head;
+        }
         for (Iterator<DoublyLinkedListItem<T>> findingItem = iterator(); findingItem.hasNext();) {
             DoublyLinkedListItem<T> element = findingItem.next();
             if (element.getValue().equals(value)){
